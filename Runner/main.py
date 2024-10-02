@@ -1,12 +1,17 @@
-from input_handler import get_user_input, choose_font, choose_color
-from art_generator import generate_ascii_art
-from file_handler import save_to_file
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from Interface.input_handler import get_user_input
+from Functions.art_generator import generate_ascii_art
+from Interface.output_formatter import format_output
+from FileHandler.file_handler import save_to_file
+from Functions.font_selector import choose_font  
+from Functions.color_selector import choose_color  
 from colorama import init
 
-init(autoreset=True)  # Initialize Colorama
-
-def format_output(ascii_art, color):
-    print(color + ascii_art)
+init(autoreset=True)
 
 def main():
     while True:
